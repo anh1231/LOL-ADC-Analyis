@@ -17,5 +17,23 @@ The question that I am proposing today is:
 The reason as to why I am asking this question is due to the fact that LOL is a 5 player team based game but certain positions in the game can affect the outcomes of the game more than others. By showing that a position is more likely to "carry" a game more than others teams can devote more time to practicing strategies that can maximize the benefits of that role and perhaps increase their chances of winning as such. 
 I will use the answers of these statistics to fit a predictive model that can predict the results of a game from a position's statistics and this model can be used to enhance a teams strategy, decision-making and overall impact their chances of winning.
 
+___
+## Data Cleaning and Exploratory Data Analysis
+
 ### Chosen features
-The chosen features that I will be working with today 
+
+In order to clean the data I will be selecting specific features to  work with. The chosen features that I will be working with today are:
+- **_'gameid'_** : Unique game IDs
+- **_'result'_** : The result of a game (0 = Loss, 1 = Win)
+- **_'gamelength'_** : The length of a game in minutes
+- **_'side'_** : The side of a particular team (Blue, Red)
+- **_'position'_** : The position of a particular player (top, jng, mid, bot, sup, team)
+- **_'kills'_** : The total number of kills for a particular player
+- **_'deaths'_** : The total number of deaths for a particular player
+- **_'assists'_** : The total number of assists for a particular player
+- **_'firstbaron'_** : Notes if a team secured first baron or not (0 = No, 1 = Yes)
+- **_'team kpm'_** : The average kills per minute of a team
+- **_'damagetochampions'_** : The total damage a particular player has done in a game
+- **_'totalgold'_** : The total gold a particular player has earned in a game
+
+In terms of data cleaning I converted **_'gamelengths'_** values from seconds to minutes for easier I will use all of these features later in further analysis and model building 
