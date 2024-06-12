@@ -37,6 +37,7 @@ In order to clean the data I will be selecting specific features to  work with. 
 - **_'totalgold'_** : The total gold a particular player has earned in a game
 
 In terms of data cleaning I first converted **_'gamelengths'_** values from seconds to minutes for easier use. I will use all of these features later in further analysis and model building. 
+
 | gameid             |   result |   gamelength | side   | position   |   kills |   deaths |   assists |   firstbaron |   team kpm |   damagetochampions |   totalgold |
 |:-------------------|---------:|-------------:|:-------|:-----------|--------:|---------:|----------:|-------------:|-----------:|--------------------:|------------:|
 | 10660-10660_game_1 |        0 |           31 | Blue   | top        |       1 |        3 |         1 |          nan |     0.0954 |                7092 |       11083 |
@@ -45,6 +46,7 @@ In terms of data cleaning I first converted **_'gamelengths'_** values from seco
 | 10660-10660_game_1 |        0 |           31 | Blue   | bot        |       2 |        4 |         0 |          nan |     0.0954 |               10892 |       12224 |
 | 10660-10660_game_1 |        0 |           31 | Blue   | sup        |       0 |        3 |         3 |          nan |     0.0954 |                6451 |        7221 |
 ​
+
 <iframe
   src="assets/distr_game_length.html"
   width="800"
