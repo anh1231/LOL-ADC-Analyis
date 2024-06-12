@@ -39,7 +39,7 @@ In order to clean the data I will be selecting specific features to  work with. 
 In terms of data cleaning I first converted **_'gamelengths'_** values from seconds to minutes for easier use. I will use all of these features later in further analysis and model building 
 
 <iframe
-  src="assets/file-name.html"
+  src="assets/distr_game_length.html"
   width="800"
   height="600"
   frameborder="0"></iframe>
