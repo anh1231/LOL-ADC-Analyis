@@ -1,15 +1,15 @@
-# Analysis of League of Legends ADC and Midlane Statistics
+# Analysis of League of Legends Statistics
 #### **Author: Andy Huang**
 ___
 
 
-This analysis was done as a comprehensive data science project at UCSD. The contents of this analysis will include methods such as exploratory data analysis, hypothesis testing, and baseline model creation. 
+This analysis was done as a comprehensive data science project at UCSD. The contents of this analysis will include methods such as exploratory data analysis, hypothesis testing, and baseline model creation and more.
 
 ___
 ## Introduction
 
 League of Legends (LOL) is a multiplayer online battle arena (MOBA) that was developed by Riot Games. It is a highly popular game that is enjoyed by people of various ages and backgrounds and enjoys a thriving professional scene with real investments and money on the line. The data set that I will be working with is a data set on the professional LOL esport scenes from 2024, collected and aggregated by Oracle's Elixir. This data set contains a variety of features ranging from 'Kill', 'Deaths', and 'Assists' (KDA), to monster kills, and much more. 
-The question that I am proposing today is: 
+There are many different queries and tests one could perform on this data but the question that I am proposing today is: 
 > _**Between Attack Damage Carries (ADC) and Midlaners, which role tends to "carry" more often than not?**_
 
 ###### [We will define the term "carry" by their KDA ratio (kills + assists/ deaths), damage to champions (characters controlled by players) and gold income.]
@@ -36,4 +36,4 @@ In order to clean the data I will be selecting specific features to  work with. 
 - **_'damagetochampions'_** : The total damage a particular player has done in a game
 - **_'totalgold'_** : The total gold a particular player has earned in a game
 
-In terms of data cleaning I converted **_'gamelengths'_** values from seconds to minutes for easier I will use all of these features later in further analysis and model building 
+In terms of data cleaning I first converted **_'gamelengths'_** values from seconds to minutes for easier use. I will use all of these features later in further analysis and model building 
