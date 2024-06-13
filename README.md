@@ -11,7 +11,6 @@ ___
 League of Legends (LOL) is a multiplayer online battle arena (MOBA) that was developed by Riot Games. It is a highly popular game that is enjoyed by people of various ages and backgrounds and enjoys a thriving professional scene with real investments and money on the line. The data set that I will be working with is a data set on the professional LOL esport scenes from 2024, collected and aggregated by Oracle's Elixir. This data set contains a variety of features ranging from 'Kill', 'Deaths', and 'Assists' (KDA), to monster kills, and much more. 
 There are many different queries and tests one could perform on this data but the question that I am proposing today is: 
 > _**Between Attack Damage Carries (ADC) and Midlaners, which role tends to "carry" more often than not?**_
-
 ###### [We will define the term "carry" by their KDA ratio (kills + assists/ deaths), damage to champions (characters controlled by players) and gold income.]
 
 The reason as to why I am asking this question is due to the fact that LOL is a 5 player team based game but certain positions in the game can affect the outcomes of the game more than others. By showing that a position is more likely to "carry" a game more than others teams can devote more time to practicing strategies that can maximize the benefits of that role and perhaps increase their chances of winning as such. 
@@ -47,7 +46,6 @@ I also separated the data into two separate dataframes, one containing statistic
 | 10660-10660_game_1 |        0 |           31 | Blue   | mid        |       0 |        2 |         0 |          nan |
 | 10660-10660_game_1 |        0 |           31 | Blue   | bot        |       2 |        4 |         0 |          nan |
 | 10660-10660_game_1 |        0 |           31 | Blue   | sup        |       0 |        3 |         3 |          nan |
-
 ###### The first couple of columns and rows of the data frame containing all positions.
 
 | gameid             |   result |   gamelength | side   | position   |   kills |   deaths |   assists |   firstbaron |
@@ -57,7 +55,6 @@ I also separated the data into two separate dataframes, one containing statistic
 | 10660-10660_game_2 |        0 |           31 | Blue   | bot        |       0 |        2 |         2 |          nan |
 | 10660-10660_game_2 |        1 |           31 | Red    | bot        |       4 |        0 |         5 |          nan |
 | 10660-10660_game_3 |        1 |           22 | Blue   | bot        |       3 |        0 |         4 |          nan |
-
 ###### The first couple of columns and rows of the data frame containing only ADCs.
 
 
@@ -68,7 +65,6 @@ I also separated the data into two separate dataframes, one containing statistic
 | 10660-10660_game_2 |        0 |           31 | Blue   | mid        |       1 |        4 |         2 |          nan |
 | 10660-10660_game_2 |        1 |           31 | Red    | mid        |       5 |        1 |         9 |          nan |
 | 10660-10660_game_3 |        1 |           22 | Blue   | mid        |       8 |        0 |         8 |          nan |
-
 ###### The first couple of columns and rows of the data frame containing only Midlaners.
 
 ### Univariate Analysis
@@ -79,7 +75,6 @@ In this section I will perform some Univariate Analysis on the feature of **_'ga
   width="700"
   height="600"
   frameborder="0"></iframe>
-
 ###### This is a histogram showing the distribution of game lengths throughout the dataset and as we can see the curve is relatively normal thus showing that a majority of games usually last around 30 minutes. Which is an interesting data point to keep in mind as ADCs are usually considered the "scaling" position which basically means that they need time and gold in order to get strong while midlaners usually have more agency in the game being strong from around mid to late game.
 
 ### Bivariate Analysis
@@ -91,7 +86,6 @@ which is often correlated with success and strength in game.
   width="700"
   height="600"
   frameborder="0"></iframe>
-
 ###### As can be seen ADCs and Midlaners have the highest average gold income among the other positions and ADC seems to come out on top, albeit not by a large margin.
 
 #### Interesting Aggregates
@@ -133,7 +127,6 @@ In this section I tested if the missingness of the column **_'firstbaron'_** is 
   width="700"
   height="600"
   frameborder="0"></iframe>   
-
 ###### Shown here is the counts of **_side_** when **_firstbaron_** is missing or not missing.
 
 <iframe
@@ -141,13 +134,12 @@ In this section I tested if the missingness of the column **_'firstbaron'_** is 
   width="700"
   height="600"
   frameborder="0"></iframe>
-
 ###### Shown here is the distribution of TVD for **_side_**.
 
 Due to the observed statistic being `0` and the P-value being `1.0` we fail to reject the Null Hypothesis and thus **_'firstbaron'_** likely does NOT depend on **_'side'_**.
 
 We have now seen how the counts and distribution of TVDs looks when **_firstbaron_** does NOT depend on a feature, in order to show a feature that **_firstbaron_** DOES depend on we will 
-now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**. Significance cutoff is 0.05 and the test statistic is Total Variation Distance (TVD).
+now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**. Significance cutoff is `0.05` and the test statistic is Total Variation Distance (TVD).
     
 > **Null Hypothesis**: The distribution of **_'split'_** is the same whether **_'firstbaron'_** is missing or not missing.
 
@@ -158,7 +150,6 @@ now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**.
   width="700"
   height="600"
   frameborder="0"></iframe>
-
 ###### Shown here is the counts of **_split_** when **_firstbaron_** is missing or not.
 
 <iframe
@@ -166,7 +157,6 @@ now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**.
   width="700"
   height="600"
   frameborder="0"></iframe>
-
 ###### Shown here is the distribution of of TVD for **split**.
 
 Due to the observed statistic being `0.28` and the P-value being `0` we reject the Null Hypothesis and thus **_'firstbaron'_** likely DOES depend on **_'split'_**.
@@ -194,7 +184,7 @@ The test statistic is `difference in means` and the **significance cutoff** is `
 
 ###### Shown here is the resulting distribution of our permutation tests.
 
-We tested our hypothesis by doing a permutation test on a dataframe that contains all 3 of these statistics combined for both ADC and Midlaners. By doing this we attained a _p-value_ of `0.0154` which is less than our _significance cutoff_ of 0.05 thus we reject the Null Hypothesis in favor for the Alternate Hypothesis. This would suggest that ADCs do in fact "carry" harder than Midlaners which means our inital assumption was correct.
+We tested our hypothesis by doing a permutation test on a dataframe that contains all 3 of these statistics combined for both ADC and Midlaners. By doing this we attained a _p-value_ of `0.0154` which is less than our _significance cutoff_ of `0.05` thus we reject the Null Hypothesis in favor for the Alternate Hypothesis. This would suggest that ADCs do in fact "carry" harder than Midlaners which means our inital assumption was correct.
 
 ## Framing a Prediction Problem
 
@@ -205,6 +195,8 @@ Thus I want to see if it is possible to predict the result of a game given stati
 
 > That is, given the statistics of an ADC, is it possible to accurately predict if the game was won or lost?
 
+## Baseline Model
+
 I am going to be building a _Binary Classification model_ that uses the metric of _F-1 score_ and _Accuracy_ in order to predict the results of the games. 
 The reason as to why I have decided to choose the _F-1 score_ and _Accuracy_ is due to the fact that the _F-1 score_ prioritizes precision and recall, leading to a more balanced model while Accuracy gives us an idea of how accurate our predictions are.
 
@@ -214,6 +206,17 @@ The features used for prediction will be **_totalgold_** and **_gamelength_**. T
 
 To start with we will first use a _Logistic Regression model_ as our baseline classifier and we will use the 2 features of **_totalgold_** (Quantitative) and **_gamelength_** (Quantitative) both of which are quantitative features and thus we will not need to do any categorical encoding on our features. 
 We will first utilize the _StandardScaler Transformer_ in order to normalize our 2 features in order to minimize data bias and make the data all be in the same scale. We then fit our model with these normalized features in order to attain our _F-1 score_ and _Accuracy score_ which are `0.7930682976554536` and `0.7926455566905005` respectively. 
+
 As can be seen here both of our scores are decent, meaning that around 79% of the time we can predict the games outcome based on the length of the game and gold income of an ADC. However I believe that this model can be improved upon and I will attempt to do so in the next section by changing models, increasing features and tuning hyperparameters.
 
-## Baseline Model
+## Final Model
+In order to achieve the best final model I have decided to change the model from a _LogisticRegression model_ to a _RandomForestClassifier_ and I will add 3 new features **_'kills'_** (Quantitative) and **_'assists'_** (Quantitative) and **_'deaths'_** (Quantitative).
+I decided to change models because I believe that the _LogisticRegression model_ was too simple and in order to improve our predictions I needed to have a model that can have a greater depth and complexity to it and thus I have decided on a _RandomForestClassifier_ model. 
+Moving on to the features, the reason why I chose these features is do to with the fact that kills, deaths and assists are a baseline for how well the ADC (or any other role) performed in a game. Having high kills and assists with low deaths means that an ADC has played very well and they have managed to have very high impact in the game while making as few of mistakes as possible.
+Vice versa, low kills and assists and high deaths means that they have been unable to attribute much to the game and have had very little impact on the game.
+   
+These 3 features are quantitative and thus no categorical encoding is required for them, however I do still need to normalize these features by applying the _StandardScaler_ transformation to them before I can fit the model to these features. 
+In terms of hyperparameters I chose 2 different hyperparameters to tune, _number of estimators_ and _max depth_. I optimized these two hyperparameters by utilizing the _GridSearchCV_ technique and testing _number of estimators_ from a range of 100 to 300 with steps of 50 and testing _max depth_ from a range of 2 to 12 with steps of 2. 
+After doing this I found that the best _number of estimators_ and _max depth_ to be `150` and `10` respectively.
+    
+Our final model has improved greatly with an _F1 score_ and _Accuracy score_ of `0.88`. This new score is better than our old model's score by 0.11, which translates to our new model being able to accurately predict the results of a game based on an ADC's statistics better by 11%, a significant increase in performance.
