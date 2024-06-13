@@ -99,6 +99,7 @@ As I explored the dataset I have come across some interesting aggregates that I 
 |      31.5478 | 6.22261 |  1.63021 |   7.62306 |   0.626788 |             23892.4 |     15053.2 |
 
 ###### (ADC Aggregates)
+
 |   gamelength |   kills |   deaths |   assists |   team kpm |   damagetochampions |   totalgold |
 |-------------:|--------:|---------:|----------:|-----------:|--------------------:|------------:|
 |      31.5437 | 2.47692 |  3.52533 |   3.84518 |   0.295688 |             19239.7 |     12225.1 |
