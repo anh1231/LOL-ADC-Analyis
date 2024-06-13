@@ -11,7 +11,7 @@ ___
 League of Legends (LOL) is a multiplayer online battle arena (MOBA) that was developed by Riot Games. It is a highly popular game that is enjoyed by people of various ages and backgrounds and enjoys a thriving professional scene with real investments and money on the line. The data set that I will be working with is a data set on the professional LOL esport scenes from 2024, collected and aggregated by Oracle's Elixir. This data set contains a variety of features ranging from 'Kill', 'Deaths', and 'Assists' (KDA), to monster kills, and much more. 
 There are many different queries and tests one could perform on this data but the question that I am proposing today is: 
 > _**Between Attack Damage Carries (ADC) and Midlaners, which role tends to "carry" more often than not?**_
-###### [We will define the term "carry" by their KDA ratio (kills + assists/ deaths), damage to champions (characters controlled by players) and gold income.]
+###### We will define the term "carry" by their KDA ratio (kills + assists/ deaths), damage to champions (characters controlled by players) and gold income.
 
 The reason as to why I am asking this question is due to the fact that LOL is a 5 player team based game but certain positions in the game can affect the outcomes of the game more than others. By showing that a position is more likely to "carry" a game more than others teams can devote more time to practicing strategies that can maximize the benefits of that role and perhaps increase their chances of winning as such. 
 I will use the answers of these statistics to fit a predictive model that can predict the results of a game from a position's statistics and this model can be used to enhance a teams strategy, decision-making and overall impact their chances of winning.
@@ -220,3 +220,32 @@ In terms of hyperparameters I chose 2 different hyperparameters to tune, _number
 After doing this I found that the best _number of estimators_ and _max depth_ to be `150` and `10` respectively.
     
 Our final model has improved greatly with an _F1 score_ and _Accuracy score_ of `0.88`. This new score is better than our old model's score by 0.11, which translates to our new model being able to accurately predict the results of a game based on an ADC's statistics better by 11%, a significant increase in performance.
+
+<iframe
+  src="assets/final_model_bar_plot.html"
+  width="700"
+  height="600"
+  frameborder="0"></iframe>
+###### Shown here is a bar plot showing the weights of each feature used to fit the model.
+
+<iframe
+  src="assets/final_model_heat_map.html"
+  width="700"
+  height="600"
+  frameborder="0"></iframe>
+###### Shown here is a heat map of the _GridSearchCV_ results.
+
+## Fairness Analysis
+In this final section I will attempt to perform a fairness analysis on my model with the question of: 
+
+> "Does my model perform worse on _**'gamelengths'**_ of `less than 25` (below average game length) versus _**'gamelengths'**_ of `greater than or equal to 25`(above average game length)? 
+
+We will perform this fairness analyis by performing a permutation test a compared the resulting _F-1 scores_ between the two groups with a _significance threshold_ of `0.05`. Group 1 is our _**'gamelengths'**_ `less than 25` and Group 2 is our _**'gamelengths'**_ `greater than or equal to 25`.
+    
+> Null Hypothesis: Our model is fair. It's _F-1 score_ for _**'gamelengths'**_ `less than 25` and for _**'gamelengths'**_ `greater than or equal to 25` are roughly the same, and any differences are due to random chance.
+
+
+> Alternate Hypothesis: Our model is NOT fair. It's _F-1 score_ for _**'gamelengths'**_ `less than 25` is lower than the _F-1 score_ for _**'gamelengths'**_ `greater than or equal to 25`.
+    
+As we attained a _p-value_ of `0.003` we can see that our model is indeed NOT fair based on the column of _**'gamelengths'**_. 
+From a logical standpoint this makes sense as we have made clear before that ADCs require time to "scale" and be strong so in the games that ended quickly ADC were likley unable to contribute as much as they probably should have versus the games that went on for a long time where they probably contributed the amount they should or even over contributed.
