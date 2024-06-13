@@ -249,3 +249,10 @@ We will perform this fairness analyis by performing a permutation test a compare
     
 As we attained a _p-value_ of `0.003` we can see that our model is indeed NOT fair based on the column of _**'gamelengths'**_. 
 From a logical standpoint this makes sense as we have made clear before that ADCs require time to "scale" and be strong so in the games that ended quickly ADC were likley unable to contribute as much as they probably should have versus the games that went on for a long time where they probably contributed the amount they should or even over contributed.
+
+<iframe
+  src="assets/distr_diff_f1.html"
+  width="700"
+  height="600"
+  frameborder="0"></iframe>
+###### Shown here is the distribution of _F1 scores_ in our fairness analysis model.
