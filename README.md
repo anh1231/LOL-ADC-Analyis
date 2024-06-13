@@ -238,14 +238,14 @@ Our final model has improved greatly with an _F1 score_ and _Accuracy score_ of 
 ## Fairness Analysis
 In this final section I will attempt to perform a fairness analysis on my model with the question of: 
 
-> "Does my model perform worse on _**'gamelengths'**_ of `less than 25` (below average game length) versus _**'gamelengths'**_ of `greater than or equal to 25`(above average game length)? 
+> "Does my model perform worse on _**'gamelengths'**_ of **less than 25** (below average game length) versus _**'gamelengths'**_ of **greater than or equal to 25** (above average game length)? 
 
-We will perform this fairness analyis by performing a permutation test a compared the resulting _F-1 scores_ between the two groups with a _significance threshold_ of `0.05`. Group 1 is our _**'gamelengths'**_ `less than 25` and Group 2 is our _**'gamelengths'**_ `greater than or equal to 25`.
+We will perform this fairness analyis by performing a permutation test a compared the resulting _F-1 scores_ between the two groups with a _significance threshold_ of `0.05`. Group 1 is our _**'gamelengths'**_ **less than 25** and Group 2 is our _**'gamelengths'**_ **greater than or equal to 25**.
     
-> Null Hypothesis: Our model is fair. It's _F-1 score_ for _**'gamelengths'**_ `less than 25` and for _**'gamelengths'**_ `greater than or equal to 25` are roughly the same, and any differences are due to random chance.
+> Null Hypothesis: Our model is fair. It's _F-1 score_ for _**'gamelengths'**_ **less than 25** and for _**'gamelengths'**_ **greater than or equal to 25** are roughly the same, and any differences are due to random chance.
 
 
-> Alternate Hypothesis: Our model is NOT fair. It's _F-1 score_ for _**'gamelengths'**_ `less than 25` is lower than the _F-1 score_ for _**'gamelengths'**_ `greater than or equal to 25`.
+> Alternate Hypothesis: Our model is NOT fair. It's _F-1 score_ for _**'gamelengths'**_ **less than 25** is lower than the _F-1 score_ for _**'gamelengths'**_ **greater than or equal to 25**.
     
 As we attained a _p-value_ of `0.003` we can see that our model is indeed NOT fair based on the column of _**'gamelengths'**_. 
 From a logical standpoint this makes sense as we have made clear before that ADCs require time to "scale" and be strong so in the games that ended quickly ADC were likley unable to contribute as much as they probably should have versus the games that went on for a long time where they probably contributed the amount they should or even over contributed.
