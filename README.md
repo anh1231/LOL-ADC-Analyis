@@ -80,7 +80,7 @@ In this section I will perform some Univariate Analysis on the feature of **_'ga
 ###### This is a histogram showing the distribution of game lengths throughout the dataset and as we can see the curve is relatively normal thus showing that a majority of games usually last around 30 minutes. Which is an interesting data point to keep in mind as ADCs are usually considered the "scaling" position which basically means that they need time and gold in order to get strong while midlaners usually have more agency in the game being strong from around mid to late game.
 
 ### Bivariate Analysis
-I have chosen to perform Bivariate Analysis on the two features of **_totalgold_** and **_position_**. This should give us quite interesting results as it will show which position makes the most gold,
+I have chosen to perform Bivariate Analysis on the two features of **_'totalgold'_** and **_'position'_**. This should give us quite interesting results as it will show which position makes the most gold,
 which is often correlated with success and strength in game.
 
 <iframe
@@ -91,7 +91,7 @@ which is often correlated with success and strength in game.
 ###### As can be seen ADCs and Midlaners have the highest average gold income among the other positions and ADC seems to come out on top, albeit not by a large margin.
 
 #### Interesting Aggregates
-As I explored the dataset I have come across some interesting aggregates that I attained by grouping by **_result_** and taking the mean of every column.
+As I explored the dataset I have come across some interesting aggregates that I attained by grouping by **_'result'_** and taking the mean of every column.
 
 |   gamelength |   kills |   deaths |   assists |   team kpm |   damagetochampions |   totalgold |
 |-------------:|--------:|---------:|----------:|-----------:|--------------------:|------------:|
@@ -107,7 +107,7 @@ As I explored the dataset I have come across some interesting aggregates that I 
 
 ###### (Midlaner Aggregates)
 
-In these 2 dataframes I have the average aggregate statistics for ADCs and Midlaners when they win or lose. As can be seen games in which teams win have wildly higher **_kills_**, **_assists_**, **_damagetochampions_**, and **_totalgold_** than compared to games in which teams lose. 
+In these 2 dataframes I have the average aggregate statistics for ADCs and Midlaners when they win or lose. As can be seen games in which teams win have wildly higher **_'kills'_**, **_'assists'_**, **_'damagetochampions'_**, and **_'totalgold'_** than compared to games in which teams lose. 
 This can be attributed to the fact that these statistics are from professional league games and thus teams that are in the lead can keep expanding their and will make little to no mistakes, ensuring that the game is as one sided as possible.
 
 ## Assessment of Missingness
@@ -130,18 +130,18 @@ In this section I tested if the missingness of the column **_'firstbaron'_** is 
   width="700"
   height="600"
   frameborder="0"></iframe>   
-###### Shown here is the counts of **_side_** when **_firstbaron_** is missing or not missing.
+###### Shown here is the counts of **_'side'_** when **_'firstbaron'_** is missing or not missing.
 
 <iframe
   src="assets/distr_baron_side.html"
   width="700"
   height="600"
   frameborder="0"></iframe>
-###### Shown here is the distribution of TVD for **_side_**.
+###### Shown here is the distribution of TVD for **_'side'_**.
 
 Due to the observed statistic being `0` and the P-value being `1.0` we fail to reject the Null Hypothesis and thus **_'firstbaron'_** likely does NOT depend on **_'side'_**.
 
-We have now seen how the counts and distribution of TVDs looks when **_firstbaron_** does NOT depend on a feature, in order to show a feature that **_firstbaron_** DOES depend on we will 
+We have now seen how the counts and distribution of TVDs looks when **_'firstbaron'_** does NOT depend on a feature, in order to show a feature that **_'firstbaron'_** DOES depend on we will 
 now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**. Significance cutoff is `0.05` and the test statistic is Total Variation Distance (TVD).
     
 > **Null Hypothesis**: The distribution of **_'split'_** is the same whether **_'firstbaron'_** is missing or not missing.
@@ -153,14 +153,14 @@ now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**.
   width="700"
   height="600"
   frameborder="0"></iframe>
-###### Shown here is the counts of **_split_** when **_firstbaron_** is missing or not.
+###### Shown here is the counts of **_'split'_** when **_'firstbaron'_** is missing or not.
 
 <iframe
   src="assets/distr_baron_split.html"
   width="700"
   height="600"
   frameborder="0"></iframe>
-###### Shown here is the distribution of of TVD for **split**.
+###### Shown here is the distribution of TVD for **'split'**.
 
 Due to the observed statistic being `0.28` and the P-value being `0` we reject the Null Hypothesis and thus **_'firstbaron'_** likely DOES depend on **_'split'_**.
 
