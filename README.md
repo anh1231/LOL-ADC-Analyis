@@ -204,9 +204,9 @@ The reason as to why I have decided to choose the _F-1 score_ and _Accuracy_ is 
 
 Using both of these metrics will allows us to see how well our model performs while also giving us a check in case there are imbalances to our data that we may not be aware of. 
 
-The features used for prediction will be **_totalgold_** and **_gamelength_**. These 2 features are available at the end of every game and thus are perfect to be used as predictors for the games result.
+The features used for prediction will be **_'totalgold'_** and **_'gamelength'_**. These 2 features are available at the end of every game and thus are perfect to be used as predictors for the games result.
 
-To start with we will first use a _Logistic Regression model_ as our baseline classifier and we will use the 2 features of **_totalgold_** (Quantitative) and **_gamelength_** (Quantitative) both of which are quantitative features and thus we will not need to do any categorical encoding on our features. 
+To start with we will first use a _Logistic Regression model_ as our baseline classifier and we will use the 2 features of **_'totalgold'_** (Quantitative) and **_'gamelength'_** (Quantitative) both of which are quantitative features and thus we will not need to do any categorical encoding on our features. 
 We will first utilize the _StandardScaler Transformer_ in order to normalize our 2 features in order to minimize data bias and make the data all be in the same scale. We then fit our model with these normalized features in order to attain our _F-1 score_ and _Accuracy score_ which are `0.7930682976554536` and `0.7926455566905005` respectively. 
 
 As can be seen here both of our scores are decent, meaning that around 79% of the time we can predict the games outcome based on the length of the game and gold income of an ADC. However I believe that this model can be improved upon and I will attempt to do so in the next section by changing models, increasing features and tuning hyperparameters.
@@ -214,7 +214,7 @@ As can be seen here both of our scores are decent, meaning that around 79% of th
 ## Final Model
 In order to achieve the best final model I have decided to change the model from a _LogisticRegression model_ to a _RandomForestClassifier_ and I will add 3 new features **_'kills'_** (Quantitative) and **_'assists'_** (Quantitative) and **_'deaths'_** (Quantitative).
 I decided to change models because I believe that the _LogisticRegression model_ was too simple and in order to improve our predictions I needed to have a model that can have a greater depth and complexity to it and thus I have decided on a _RandomForestClassifier_ model. 
-Moving on to the features, the reason why I chose these features is do to with the fact that kills, deaths and assists are a baseline for how well the ADC (or any other role) performed in a game. Having high kills and assists with low deaths means that an ADC has played very well and they have managed to have very high impact in the game while making as few of mistakes as possible.
+Moving on to the features, the reason why I chose these features is to do with the fact that kills, deaths and assists are a baseline for how well the ADC (or any other role) performed in a game. Having high kills and assists with low deaths means that an ADC has played very well and they have managed to have very high impact in the game while making as few of mistakes as possible.
 Vice versa, low kills and assists and high deaths means that they have been unable to attribute much to the game and have had very little impact on the game.
    
 These 3 features are quantitative and thus no categorical encoding is required for them, however I do still need to normalize these features by applying the _StandardScaler_ transformation to them before I can fit the model to these features. 
