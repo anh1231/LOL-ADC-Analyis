@@ -38,7 +38,6 @@ In order to clean the data I will be selecting specific features to  work with. 
 In terms of data cleaning I first converted **_'gamelengths'_** values from seconds to minutes for easier use. I will use all of these features later in further analysis and model building.
 I also separated the data into two separate dataframes, one containing statistics solely for ADCs and the other containing statistics solely for Midlaners.
 
-
 | gameid             |   result |   gamelength | side   | position   |   kills |   deaths |   assists |   firstbaron |
 |:-------------------|---------:|-------------:|:-------|:-----------|--------:|---------:|----------:|-------------:|
 | 10660-10660_game_1 |        0 |           31 | Blue   | top        |       1 |        3 |         1 |          nan |
@@ -46,6 +45,7 @@ I also separated the data into two separate dataframes, one containing statistic
 | 10660-10660_game_1 |        0 |           31 | Blue   | mid        |       0 |        2 |         0 |          nan |
 | 10660-10660_game_1 |        0 |           31 | Blue   | bot        |       2 |        4 |         0 |          nan |
 | 10660-10660_game_1 |        0 |           31 | Blue   | sup        |       0 |        3 |         3 |          nan |
+
 ###### The first couple of columns and rows of the data frame containing all positions.
 
 | gameid             |   result |   gamelength | side   | position   |   kills |   deaths |   assists |   firstbaron |
@@ -55,6 +55,7 @@ I also separated the data into two separate dataframes, one containing statistic
 | 10660-10660_game_2 |        0 |           31 | Blue   | bot        |       0 |        2 |         2 |          nan |
 | 10660-10660_game_2 |        1 |           31 | Red    | bot        |       4 |        0 |         5 |          nan |
 | 10660-10660_game_3 |        1 |           22 | Blue   | bot        |       3 |        0 |         4 |          nan |
+
 ###### The first couple of columns and rows of the data frame containing only ADCs.
 
 
@@ -65,6 +66,7 @@ I also separated the data into two separate dataframes, one containing statistic
 | 10660-10660_game_2 |        0 |           31 | Blue   | mid        |       1 |        4 |         2 |          nan |
 | 10660-10660_game_2 |        1 |           31 | Red    | mid        |       5 |        1 |         9 |          nan |
 | 10660-10660_game_3 |        1 |           22 | Blue   | mid        |       8 |        0 |         8 |          nan |
+
 ###### The first couple of columns and rows of the data frame containing only Midlaners.
 
 ### Univariate Analysis
