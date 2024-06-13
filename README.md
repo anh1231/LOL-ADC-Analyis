@@ -8,7 +8,7 @@ This analysis was done as a comprehensive data science project at UCSD. The cont
 ___
 ## Introduction
 
-League of Legends (LOL) is a multiplayer online battle arena (MOBA) that was developed by Riot Games. It is a highly popular game that is enjoyed by people of various ages and backgrounds and enjoys a thriving professional scene with real investments and money on the line. The data set that I will be working with is a data set on the professional LOL esport scenes from 2024, collected and aggregated by Oracle's Elixir. This data set contains a variety of features ranging from 'Kill', 'Deaths', and 'Assists' (KDA), to monster kills, and much more. 
+League of Legends (LOL) is a multiplayer online battle arena (MOBA) that was developed by Riot Games. It is a highly popular game that is enjoyed by people of various ages and backgrounds and enjoys a thriving professional scene with real investments and money on the line. The data set that I will be working with is a data set on the professional LOL esport scenes from 2024, collected and aggregated by Oracle's Elixir. This data set contains a variety of features ranging from **_'Kill'_**, **_'Deaths'_**, and **_'Assists'_** (KDA), to **_'monster kills'_**, and much more. 
 There are many different queries and tests one could perform on this data but the question that I am proposing today is: 
 > _**Between Attack Damage Carries (ADC) and Midlaners, which role tends to "carry" more often than not, and given the role that tends to "carry" the most, is it possible to predict the game's results from their statistics?**_
 ###### We will define the term "carry" by their KDA ratio (kills + assists/ deaths), damage to champions (characters controlled by players) and gold income.
@@ -142,7 +142,7 @@ In this section I tested if the missingness of the column **_'firstbaron'_** is 
 Due to the observed statistic being `0` and the P-value being `1.0` we fail to reject the Null Hypothesis and thus **_'firstbaron'_** likely does NOT depend on **_'side'_**.
 
 We have now seen how the counts and distribution of TVDs looks when **_'firstbaron'_** does NOT depend on a feature, in order to show a feature that **_'firstbaron'_** DOES depend on we will 
-now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**. Significance cutoff is `0.05` and the test statistic is Total Variation Distance (TVD).
+now test if the missingness of **_'firstbaron'_** is dependent on **_'split'_**. Significance cutoff is `0.05` and the test statistic is `Total Variation Distance (TVD)`.
     
 > **Null Hypothesis**: The distribution of **_'split'_** is the same whether **_'firstbaron'_** is missing or not missing.
 
@@ -171,7 +171,7 @@ Due to the nature of the name Attack Damage Carry (ADC), one can be expected to 
 
 In this section I will try to see if ADCs "carry" harder than Midlaners by performing a hypothesis test on the metric of "carry" that I have defined, that which being KDA ratio (kills + assists / death), damage to champions, and gold income. I believe that these 3 statistics are important when considering how hard a position "carries" because they are 3 statistics that numerically shows how much of an impact that role has had in that game. A high KDA ratio means that role has had high kill participation while having low deaths, a high damage to champion stat shows how much they are contributing in a team fight, and a high gold income shows how far they are ahead of their opponent's economy.
 
-Thus with all 3 of these statistics combined can give us a way to numerically show how hard a certain position "carried" a game in relations to other positions.
+Thus with all 3 of these statistics combined, this will give us a way to numerically show how hard a certain position "carried" a game in relations to other positions.
     
 The test statistic is `difference in means` and the **significance cutoff** is `0.05`.
     
